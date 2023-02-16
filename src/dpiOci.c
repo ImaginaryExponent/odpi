@@ -1829,7 +1829,7 @@ static int dpiOci__loadLibInModuleDir(dpiOciLoadLibParams *loadParams,
     }
     while (1) {
         result = GetModuleFileName(module, loadParams->moduleNameBuffer,
-                loadParams->moduleNameBufferLength);
+                (DWORD) loadParams->moduleNameBufferLength);
         if (result < (DWORD) loadParams->moduleNameBufferLength)
             break;
         if (dpiUtils__ensureBuffer(loadParams->moduleNameBufferLength * 2,
